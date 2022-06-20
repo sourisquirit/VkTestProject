@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="Exclude methods" verbose="5">
+    <test name="tests.AddDeleteLikesTest">
+        <classes>
+            <class name="tests.AddDeleteLikesTest">
+                <methods>
+                    <exclude name="deleteLikesAccessDeniedTest"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+</suite>
