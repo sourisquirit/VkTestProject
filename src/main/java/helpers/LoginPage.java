@@ -23,7 +23,7 @@ public class LoginPage {
     @Step("Init Selenide")
     public void init() {
         logger.info("Configuring Selenide");
-        Configuration.headless = false;
+        Configuration.headless = true;
         SelenideLogger.addListener("AllureSelenide", new AllureSelenide()
                 .screenshots(true)
                 .savePageSource(true)
