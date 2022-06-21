@@ -1,10 +1,9 @@
 # VK TEST How To Use
 
 ## To run tests: 
-- add valid credentials to src/main/java/enums/LoginData.java 
-- run following command in the terminal
+- run following command in the terminal with valid credentials
 ```
-mvn clean test
+mvn clean -Dlogin="phoneNumber" -Dpass="password123" test
 ```
 
 ## Reporting
@@ -30,5 +29,5 @@ allure open PATH-TO-ALLURE-REPORT-FOLDER
 - [X] Один позитивный и один негативный кейс на каждый метод.
 - [X] Использовать DDT подход. Достаточно использовать для одного теста на выбор. (Data Provider)
 - [X] Разбить тесты на группы (TestNG). Выбор групп для тестов не принципиален. (xmlSuites)
-- [X] Не хранить пользователей (ID/access_token) в коде. (properties файлы и enum для логин данных)
+- [X] Не хранить пользователей (ID/access_token) в коде. (properties файлы, System properlies для логина)
 - [X] Прислать архив или ссылку на репозиторий.
