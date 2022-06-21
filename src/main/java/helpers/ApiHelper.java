@@ -32,7 +32,7 @@ public class ApiHelper {
             authResponse = vk.oAuth()
                     .userAuthorizationCodeFlow(
                             Integer.valueOf(rb.getString("API_ID")),
-                            rb.getString("CLIENT_SECRET"),
+                            System.getProperty("client_secret"),
                             rb.getString("REDIRECT_URI"),
                             code)
                     .execute();

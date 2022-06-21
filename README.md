@@ -1,9 +1,16 @@
 # VK TEST How To Use
+This project contains tests for [VK likes methods](https://dev.vk.com/method/likes)
 
-## To run tests: 
+## Prerequisites
+- Java 11 
+- Maven 3.6
+
+## Test run
+Tests are located in the package src/test/java/tests (test classes AddDeleteLikesTest and CheckLikesTest)
 - run following command in the terminal with valid credentials
 ```
-mvn clean -Dlogin="phoneNumber" -Dpass="password123" test
+mvn clean 
+mvn -Dlogin="phoneNumber" -Dpass="password123" -Dclient_secret="valid_client_secret" test
 ```
 
 ## Reporting
@@ -29,5 +36,5 @@ allure open PATH-TO-ALLURE-REPORT-FOLDER
 - [X] Один позитивный и один негативный кейс на каждый метод.
 - [X] Использовать DDT подход. Достаточно использовать для одного теста на выбор. (Data Provider)
 - [X] Разбить тесты на группы (TestNG). Выбор групп для тестов не принципиален. (xmlSuites)
-- [X] Не хранить пользователей (ID/access_token) в коде. (properties файлы, System properlies для логина)
+- [X] Не хранить пользователей (ID/access_token) в коде. (properties файлы, System properties для логина  авторизации)
 - [X] Прислать архив или ссылку на репозиторий.
