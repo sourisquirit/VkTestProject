@@ -24,12 +24,16 @@ public class BaseTest {
 
     @BeforeClass
     public void init() {
-        loginPage.init();
-        //get code
-        String code = loginPage.openUrl(rb.getString("GET_CODE_URI"))
-                .allowAccess()
-                .getCode();
-        loginPage.quit();
+        String code;
+        try {
+            loginPage.init();
+            //get code
+            code = loginPage.openUrl(rb.getString("GET_CODE_URI"))
+                    .allowAccess()
+                    .getCode();
+        } finally {
+            loginPage.quit();
+        }
         // get api client
         vk = apiHelper.getApiClient();
         // get access token

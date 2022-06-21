@@ -3,7 +3,6 @@ package helpers;
 import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.WebDriverRunner;
 import com.codeborne.selenide.logevents.SelenideLogger;
-import enums.LoginData;
 import io.qameta.allure.Step;
 import io.qameta.allure.selenide.AllureSelenide;
 import org.openqa.selenium.By;
@@ -24,7 +23,7 @@ public class LoginPage {
     @Step("Init Selenide")
     public void init() {
         logger.info("Configuring Selenide");
-        Configuration.headless = true;
+        Configuration.headless = false;
         SelenideLogger.addListener("AllureSelenide", new AllureSelenide()
                 .screenshots(true)
                 .savePageSource(true)
@@ -49,8 +48,11 @@ public class LoginPage {
     @Step("Allow access to application")
     public LoginPage allowAccess() {
         logger.info("Set login data");
-        $(emailInputField).sendKeys(LoginData.MAIN_USER.getLogin());
-        $(passwordInputField).sendKeys(LoginData.MAIN_USER.getPassword());
+
+        String user = System.getProperty("login");
+        String pass = System.getProperty("pass");
+        $(emailInputField).sendKeys(user);
+        $(passwordInputField).sendKeys(pass);
         $(installAllowButton).click();
         if ($(allowButton).exists()) {
             $(allowButton).click();
